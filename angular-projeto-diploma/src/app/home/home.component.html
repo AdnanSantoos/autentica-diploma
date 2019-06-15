@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+    </ul>
+    <span class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="email" placeholder="Email" aria-label="Search" #userEmail required autofocus>
+      <input class="form-control mr-sm-2" type="password" placeholder="Senha" aria-label="Search" #userPassword required>
+      <button class="btn btn-outline-success my-2 my-sm-0" (click)="login(userEmail.value, userPassword.value)" >Login</button>
+    </span>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 mt-5">
+        <input class="form-control mr-sm-2" type="text" placeholder="Insira o Hash" aria-label="Search" #userHash required autofocus>
+        <button class="btn btn-outline-success my-2 my-sm-0" (click)="getAutenticacao(userHash)" >verificar</button>
+    </div>
+
+    <div class="jumbotron" *ngIf="resultado">
+        <h1 class="display-4">Seu certificado é válido</h1>
+        <hr class="my-4">
+        <p>{{resultado.Nome}}</p>
+        <p>{{resultado.Faculdade}}</p>
+        <p>{{resultado.Curso}}</p>
+        <p>{{resultado.Ano}}</p>
+        <p>{{resultado.Hash}}</p>
+      </div>
+      <div class="jumbotron" *ngIf="resultadoNegativo">
+          <h1 class="display-4">Seu certificado não válido</h1>
+        </div>
+  </div>
+</div>
